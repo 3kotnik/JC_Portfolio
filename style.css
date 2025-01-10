@@ -201,6 +201,7 @@ section h2 .text-color {
     left: 0;
     overflow: hidden;
     width: 0; /* Initial width */
+    white-space: nowrap;
     transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Transition property */
 }
 section.active h2 .text-color {

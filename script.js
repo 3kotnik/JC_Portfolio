@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
         heading.innerHTML = ''; // clear the original text
 
         // Create spans for the initial text and the colored text
-        const coloredText = document.createElement('span');
-        coloredText.classList.add('text-color');
         const originalText = document.createElement('span');
         originalText.textContent = text;
 
-         coloredText.textContent = text;
+        const coloredText = document.createElement('span');
+        coloredText.classList.add('text-color');
+        coloredText.textContent = text;
 
         heading.appendChild(originalText);
         heading.appendChild(coloredText);
