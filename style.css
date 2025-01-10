@@ -7,12 +7,19 @@ body, h1, h2, h3, p, ul, li, form {
 body {
     font-family: sans-serif;
     line-height: 1.6;
+    scroll-behavior: smooth;
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff; /* Light text color */
 }
 /* Header and Nav Styles */
 header {
-    background-color: #333;
+    background-color: #1a1a1a;
     color: white;
     padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+     border-bottom: 1px solid #292929;
 }
 nav {
     display: flex;
@@ -44,27 +51,59 @@ nav {
 }
 /* Hero Section Styles */
 .hero {
-    height: 40vh;
-    background-color: #f0f0f0;
+    height: 100vh;
+    background-color: #1a1a1a;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
     text-align: center;
+    overflow: hidden; /* Hide the overflow for the effect */
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://placehold.co/1920x1080/333/fff?text=Hero+Background'); /* Replace with your image */
+  background-size: cover;
+   background-position: center;
+  z-index: -1;
+  opacity: 0.6; /* Adjust opacity as needed */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.hero.active::before {
+    transform: scale(1.1); /* Slightly zoom in on scroll */
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+     z-index: 1;
+       opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.hero.active .hero-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .hero-content h1 {
-    font-size: 2.5em;
+    font-size: 3em; /* Increased font size */
     margin-bottom: 10px;
+     font-weight: 600;
 }
-
 .hero-content p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
+    font-size: 1.3em; /* Increased font size */
+    margin-bottom: 20px;
+     font-weight: 300;
 }
-
 #unity-container {
-  width: 100%;
+    width: 100%;
     height: 400px;
      display: flex;
     align-items: center;
@@ -81,41 +120,60 @@ nav {
     color: #888;
     font-style: italic;
 }
+
 /* Content Section Styles */
 section {
-    padding: 4rem 0;
+    padding: 6rem 0;
     text-align: center;
+    position: relative;
+     overflow: hidden;
+
 }
-section .content {
-    max-width: 800px;
+
+section.even {
+   background-color: #1f1f1f;
+}
+section.odd {
+  background-color: #1a1a1a;
+}
+
+
+.section-content {
+    max-width: 1200px;
     margin: 0 auto;
-     padding: 0 20px;
+    padding: 0 20px;
+     opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+section.active .section-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 section h2 {
     margin-bottom: 20px;
-    font-size: 2em;
+    font-size: 2.5em;
+      font-weight: 600;
 }
 section p {
     margin-bottom: 30px;
-    font-size: 1.1em;
+    font-size: 1.2em;
+      font-weight: 300;
 }
-
 section img {
     max-width: 100%;
     height: auto;
     margin-top: 20px;
 }
 .ar-vr {
-    background-color: #e0f7fa;
 }
 .3d-assets {
-    background-color: #fffde7;
 }
 .generative-ai {
-    background-color: #fbe9e7;
 }
 .contact {
-    background-color: #eceff1;
 }
 
 /* Contact Form */
@@ -129,12 +187,14 @@ form input, form textarea, form button {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
+  background-color: #333;
+  color: #fff;
 }
 form textarea {
   min-height: 150px;
 }
 form button {
-  background-color: #333;
+  background-color: #666;
   color: white;
     cursor: pointer;
   border: none;
@@ -145,10 +205,11 @@ form button:hover {
 }
 /* Footer Styles */
 footer {
-    background-color: #333;
+    background-color: #1a1a1a;
     color: white;
     text-align: center;
     padding: 1rem 0;
+     border-top: 1px solid #292929;
 }
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -160,22 +221,25 @@ footer {
     margin: 10px 0;
   }
     .hero {
-        height: auto;
+        height: 100vh;
          padding: 1rem;
     }
    .hero-content h1 {
-       font-size: 2em;
+       font-size: 2.5em;
    }
+   .hero-content p {
+      font-size: 1.1em;
+  }
   #unity-container {
      height: 200px;
   }
   section {
-        padding: 2rem 0;
+        padding: 4rem 0;
     }
    section h2 {
-        font-size: 1.5em;
+        font-size: 2em;
     }
   section p {
-     font-size: 1em;
+     font-size: 1.1em;
   }
 }
