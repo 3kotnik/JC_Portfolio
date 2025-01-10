@@ -1,0 +1,181 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li, form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+/* Header and Nav Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+.nav-links li {
+    margin-left: 20px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover {
+    color: #ccc;
+}
+/* Hero Section Styles */
+.hero {
+    height: 40vh;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+#unity-container {
+  width: 100%;
+    height: 400px;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.placeholder-unity {
+    border: 2px dashed #ccc;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+/* Content Section Styles */
+section {
+    padding: 4rem 0;
+    text-align: center;
+}
+section .content {
+    max-width: 800px;
+    margin: 0 auto;
+     padding: 0 20px;
+}
+section h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+section p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.ar-vr {
+    background-color: #e0f7fa;
+}
+.3d-assets {
+    background-color: #fffde7;
+}
+.generative-ai {
+    background-color: #fbe9e7;
+}
+.contact {
+    background-color: #eceff1;
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 20px auto;
+}
+form input, form textarea, form button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+form textarea {
+  min-height: 150px;
+}
+form button {
+  background-color: #333;
+  color: white;
+    cursor: pointer;
+  border: none;
+    transition: background-color 0.3s ease;
+}
+form button:hover {
+  background-color: #555;
+}
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+  .nav-links li {
+    margin: 10px 0;
+  }
+    .hero {
+        height: auto;
+         padding: 1rem;
+    }
+   .hero-content h1 {
+       font-size: 2em;
+   }
+  #unity-container {
+     height: 200px;
+  }
+  section {
+        padding: 2rem 0;
+    }
+   section h2 {
+        font-size: 1.5em;
+    }
+  section p {
+     font-size: 1em;
+  }
+}
