@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM loaded");
 
-    // Smooth scrolling for navigation
+     // Smooth scrolling for navigation
    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -10,6 +10,22 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    function createColoredText(heading) {
+        const text = heading.textContent;
+        heading.innerHTML = ''; // clear the original text
+
+        // Create spans for the initial text and the colored text
+        const coloredText = document.createElement('span');
+        coloredText.classList.add('text-color');
+        const originalText = document.createElement('span');
+        originalText.textContent = text;
+
+         coloredText.textContent = text;
+
+        heading.appendChild(originalText);
+        heading.appendChild(coloredText);
+   }
 
      // Function to handle section reveal on scroll
     function handleSectionReveal() {
@@ -41,8 +57,23 @@ document.addEventListener('DOMContentLoaded', function () {
                section.classList.remove('odd');
             } else {
               section.classList.add('odd');
-                section.classList.remove('even');
+              section.classList.remove('even');
             }
+
+          const heading = section.querySelector('h2');
+          if (heading) {
+              createColoredText(heading);
+          }
+
+            const background = section.querySelector('.section-background');
+            if (background) {
+                background.classList.add('parallax-slow')
+                if (index % 2 === 0) {
+                    background.classList.add('parallax-fast')
+                }
+
+            }
+
         });
     }
 

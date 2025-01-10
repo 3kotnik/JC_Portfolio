@@ -5,11 +5,12 @@ body, h1, h2, h3, p, ul, li, form {
     border: 0;
 }
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
-    background-color: #1a1a1a; /* Dark background */
-    color: #fff; /* Light text color */
+    background-color: #1a1a1a;
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 /* Header and Nav Styles */
 header {
@@ -19,7 +20,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-     border-bottom: 1px solid #292929;
+    border-bottom: 1px solid #292929;
 }
 nav {
     display: flex;
@@ -58,31 +59,31 @@ nav {
     align-items: center;
     padding: 2rem;
     text-align: center;
-    overflow: hidden; /* Hide the overflow for the effect */
+    overflow: hidden;
+    position: relative; /* Add relative position for absolute elements */
 }
 .hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://placehold.co/1920x1080/333/fff?text=Hero+Background'); /* Replace with your image */
-  background-size: cover;
-   background-position: center;
-  z-index: -1;
-  opacity: 0.6; /* Adjust opacity as needed */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background-image: url('https://images.unsplash.com/photo-1554415707-6e8cfc93785f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.4;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .hero.active::before {
-    transform: scale(1.1); /* Slightly zoom in on scroll */
+    transform: scale(1.1);
 }
-
 .hero-content {
     max-width: 800px;
     position: relative;
-     z-index: 1;
-       opacity: 0;
+    z-index: 1;
+    opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
@@ -90,22 +91,22 @@ nav {
     opacity: 1;
     transform: translateY(0);
 }
-
-
 .hero-content h1 {
-    font-size: 3em; /* Increased font size */
+    font-size: 4.5em; /* Even larger font size */
     margin-bottom: 10px;
-     font-weight: 600;
+     font-weight: 700;
+    letter-spacing: -2px; /* Adjust letter spacing */
 }
 .hero-content p {
-    font-size: 1.3em; /* Increased font size */
+    font-size: 1.5em;
     margin-bottom: 20px;
      font-weight: 300;
+    letter-spacing: -0.5px;
 }
 #unity-container {
     width: 100%;
     height: 400px;
-     display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -126,10 +127,8 @@ section {
     padding: 6rem 0;
     text-align: center;
     position: relative;
-     overflow: hidden;
-
+    overflow: hidden;
 }
-
 section.even {
    background-color: #1f1f1f;
 }
@@ -137,36 +136,88 @@ section.odd {
   background-color: #1a1a1a;
 }
 
+.section-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+      opacity: 0.4;
+     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.section-background.parallax-slow {
+  transform: translateZ(-10px) scale(1.1);
+}
+.section-background.parallax-fast {
+    transform: translateZ(-5px) scale(1.05);
+}
+section.active .section-background {
+   transform: translateZ(0) scale(1);
+}
+
+.ar-vr .section-background {
+ background-image: url('https://images.unsplash.com/photo-1551836022-c9f733772888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your AR/VR image */
+}
+.3d-assets .section-background {
+     background-image: url('https://images.unsplash.com/photo-1592001228341-07f209ad6829?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your 3D Assets image */
+}
+.generative-ai .section-background {
+    background-image: url('https://images.unsplash.com/photo-1682685797500-958767470a83?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your Generative AI image */
+}
+.contact .section-background {
+       background-image: url('https://images.unsplash.com/photo-1609608477432-25a4bf1b9446?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your Contact image */
+}
+
 
 .section-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-     opacity: 0;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 section.active .section-content {
     opacity: 1;
     transform: translateY(0);
 }
-
 section h2 {
     margin-bottom: 20px;
-    font-size: 2.5em;
-      font-weight: 600;
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    display: inline-block; /* Ensures the container fits the text */
+    position: relative; /* Allows absolute positioning of the colored letters */
+}
+section h2 .text-color {
+    position: absolute; /* Make letters absolutely positioned */
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0; /* Initial width */
+    transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Transition property */
+}
+section.active h2 .text-color {
+    width: 100%;
 }
 section p {
     margin-bottom: 30px;
-    font-size: 1.2em;
-      font-weight: 300;
+    font-size: 1.3em;
+    font-weight: 300;
+     letter-spacing: -0.5px;
 }
 section img {
     max-width: 100%;
     height: auto;
     margin-top: 20px;
 }
+
 .ar-vr {
 }
 .3d-assets {
